@@ -4,6 +4,13 @@ const calculateButton = document.getElementById("calculate-button");
 const estimate = document.getElementById("estimate");
 const yearly_estimate = document.getElementById("yearly-estimate");
 const currencyInput = document.getElementById("currency");
+const rpmInput = document.getElementById("RPM-input");
+const revenue_section = document.getElementById("custom-revenue");
+const inputs = document.querySelectorAll("input, select");
+const rpm_radio = document.querySelectorAll('input[name="rpm-radio"]');
+
+
+let rpmMode = "platforms"
 
 const rpmRanges = {
     youtube: {
@@ -43,6 +50,38 @@ const rpmRanges = {
     },
 };
 
+
+const platformColorSchemes = {
+    default: {
+        mainColor: "#2e6fac",
+        secondaryColor: "#275c8d"
+    },
+
+    youtube: {
+        mainColor: "#FF0000",
+        secondaryColor: "#FF0000"
+    },
+    youtube_shorts: {
+        mainColor: "#ff1b0a",
+        secondaryColor: "#FF0000"
+    },
+    tiktok: {
+        mainColor: "#FE2C55",
+        secondaryColor: "#25F4EE"
+    },
+    twitch_ads: {
+        mainColor: "#9146FF",
+        secondaryColor: "#a844eb"
+    },
+    facebook_instream: {
+        mainColor: "#1877F2",
+        secondaryColor: "#1877F2"
+    },
+    x_revenue: {
+        mainColor: "#000000",
+        secondaryColor: "#000000"
+    }
+}
 
 let lastUpdatedDate = "";
 let exchangeRates = {
@@ -110,15 +149,33 @@ function displayUpdateTimestamp() {
 }
 
 
+const compactFormatter = new Intl.NumberFormat('en-US', {
+  notation: 'compact',
+  compactDisplay: 'short'
+});
+
 setTimeout(displayUpdateTimestamp, 1500);
 
 function calculate(){
-    updateExchangeRates();
     const rate = exchangeRates[currencyInput.value];
     const views = Number(viewsInput.value);
     const platform = platformInput.value;
 
-    const range = rpmRanges[platform];
+    let range;
+
+    if (rpmMode === "custom") {
+
+        range = {
+            low: Number(document.getElementById("monthly-low-input").value),
+            average: Number(document.getElementById("estimate-input").value),
+            high: Number(document.getElementById("monthly-low-input").value)
+        };
+
+    } else {
+
+        range = rpmRanges[platform];
+
+    }
 
     const lowRevenue = (views / 1000) * range.low;
     const averageRevenue = (views / 1000) * range.average;
@@ -142,6 +199,9 @@ function calculate(){
         currency: currencyInput.value
     });
 
+
+    document.getElementById("inputted-views").innerText = `${compactFormatter.format(views)} views`;
+
     document.getElementById("monthly-low").textContent = money.format(convertedLow);
 
     document.getElementById("estimate").textContent = money.format(convertedAverage);
@@ -162,10 +222,54 @@ calculateButton.addEventListener("click", function () {
 
 platformInput.addEventListener("change", function() {
     calculate();
+    changeSchemeColor();
 })
 
 currencyInput.addEventListener("change", function() {
     calculate();
 })
 
+rpm_radio.forEach(function(radio) {
+    radio.addEventListener("change", function() {
+        changeRPMmode(this.value);
+    });
+});
 
+function changeSchemeColor(){
+    const platform = platformInput.value;
+    
+    let mainColor;
+    let secondaryColor;
+
+    if (rpmMode === "custom"){
+        mainColor = platformColorSchemes["default"].mainColor;
+        secondaryColor = platformColorSchemes["default"].secondaryColor;
+    } else {
+        mainColor = platformColorSchemes[platform].mainColor;
+        secondaryColor = platformColorSchemes[platform].secondaryColor;
+    }
+
+    document.getElementById("TopHeader").style.backgroundColor = mainColor;
+    calculateButton.style.backgroundColor = secondaryColor;
+
+    inputs.forEach(input => {
+        input.dataset.focusColor = secondaryColor;
+    });
+}
+
+
+function changeRPMmode(mode){
+    if (mode == "custom"){
+        revenue_section.style.display = "grid";
+        platformInput.disabled = true;
+        calculate();
+    }else{
+        revenue_section.style.display = "none";
+        platformInput.disabled = false;
+        calculate();
+    }
+    rpmMode = mode;
+    changeSchemeColor();
+}
+
+changeSchemeColor();

@@ -1,13 +1,10 @@
 body {
     background-color: #f7f8fa;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular',
-        'Lucida Grande', 'Lucida Sans Unicode',
-        Geneva, Verdana, sans-serif;
-
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0;
     color: #111;
 }
-
 
 
 .TopHeader {
@@ -22,171 +19,168 @@ body {
     font-size: 36px;
 }
 
+#platform {
+    font-size: 15px;
+}
 
-
-
-.main {
-    background-color: white;
-
-    width: 90%;
-    max-width: 750px;
-
-    margin: 40px auto;
-    padding: 30px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-
-    text-align: center;
-
-    box-sizing: border-box;
+#rpm-modes-header {
+    margin-top: 15px;
 }
 
 
+.main,
+#FAQ {
+    background-color: white;
+    width: 90%;
+    max-width: 750px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    box-sizing: border-box;
+}
 
+.main {
+    padding: 30px;
+}
+
+#FAQ {
+    padding: 5px 20px 20px;
+}
 
 .main label {
     display: block;
-
     font-size: 28px;
     font-weight: bold;
-
     margin-bottom: 15px;
 }
 
 
-
-
-#monthlyviews-input {
+#monthlyviews-input,
+#RPM-input {
     font-size: 24px;
-
     width: 100%;
     padding: 12px;
-
     box-sizing: border-box;
-
     border: 2px solid #ddd;
     border-radius: 8px;
-
     outline: none;
 }
 
-#rpm-input{
-        font-size: 24px;
+#monthlyviews-input:focus,
+#RPM-input:focus {
+    border-color: rgb(46, 111, 172);
+}
 
+
+#RPM-label,
+#RPM-input {
+    display: none;
+}
+
+.main.custom-mode #RPM-label {
+    display: none;
+    margin-top: 25px;
+}
+
+.main.custom-mode #RPM-input {
+    display: none;
+}
+
+
+#custom-revenue {
+    display: none;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    align-items: end;
+    gap: 15px;
     width: 100%;
-    padding: 12px;
+    margin: 30px 0;
+}
 
+#custom-revenue .revenue-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+#custom-revenue .revenue-column span { 
+    font-size: 20px; 
+    font-weight: bold; 
+}
+
+
+#custom-revenue .revenue-column input { 
+    width: 100%; 
+    max-width: 180px; 
+    font-size: 20px; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    text-align: center; 
+    border: 2px solid #ddd; 
+    border-radius: 8px; 
+    outline: none; 
+}
+
+
+#custom-revenue .revenue-column input:focus { 
+    border-color: rgb(46, 111, 172); 
+}
+
+
+#custom-revenue .average input { 
+    font-size: 24px; 
+}
+
+.revenue-column input {
+    font-size: 20px;
+    width: 90%;
+    padding: 10px;
     box-sizing: border-box;
-
+    text-align: center;
     border: 2px solid #ddd;
     border-radius: 8px;
-
     outline: none;
 }
 
-
-#rpm-input:focus{
+.revenue-column input:focus {
     border-color: rgb(46, 111, 172);
 }
 
-#monthlyviews-input:focus {
-    border-color: rgb(46, 111, 172);
-}
-
-#platform{
-    font-size: 15px;
+.revenue-column.average input {
+    font-size: 24px;
 }
 
 
+#inputted-views {
+    margin: 30px 0 0;
+}
 
 .arrow {
     font-size: 35px;
     margin: 20px 0;
+    user-select: none;
 }
-
-
 
 .result p {
     font-size: 18px;
     margin-bottom: 5px;
 }
 
-#estimate {
-    font-size: 48px;
-    margin: 10px 0;
-}
-
-
-#yearly-estimate {
-    font-size: 48px;
-    margin: 10px 0;
-}
-
 .result small {
     display: block;
-
     color: #777;
-
     font-size: 14px;
-
     margin-bottom: 25px;
-}
-
-
-#FAQ{
-    background-color: white;
-
-    width: 90%;
-    max-width: 750px;
-
-    margin: 40px auto;
-    padding: 5px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-
-    text-align: center;
-
-    box-sizing: border-box;
-}
-
-
-#calculate-button {
-    font-size: 24px;
-
-    width: 70%;
-
-    padding: 12px;
-
-    border: none;
-    border-radius: 8px;
-
-    background-color: rgb(46, 111, 172);
-    color: white;
-
-    cursor: pointer;
-
-    transition: transform 0.15s, background-color 0.15s;
-}
-
-#calculate-button:hover {
-    transform: scale(1.03);
-
-    background-color: rgb(38, 94, 146);
-}
-
-#calculate-button:active {
-    transform: scale(0.98);
 }
 
 .revenue-section {
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr;
     align-items: center;
-
+    width: 100%;
+    gap: 15px;
     margin: 30px 0;
 }
 
@@ -195,6 +189,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    min-width: 0;
 }
 
 .revenue-column span {
@@ -215,9 +210,28 @@ hr {
     margin: 35px 0;
 }
 
+#calculate-button {
+    font-size: 24px;
+    width: 70%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(46, 111, 172);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.15s;
+}
+
+#calculate-button:hover {
+    transform: scale(1.03);
+}
+
+#calculate-button:active {
+    transform: scale(0.98);
+}
+
 
 @media (max-width: 600px) {
-
     .TopHeader h1 {
         font-size: 28px;
     }
@@ -232,12 +246,37 @@ hr {
         font-size: 22px;
     }
 
-    #monthlyviews-input {
+    #monthlyviews-input,
+    #RPM-input {
         font-size: 20px;
     }
 
-    #estimate {
-        font-size: 40px;
+    #custom-revenue, 
+    .revenue-section { 
+        grid-template-columns: 1fr 1fr 1fr; 
+        gap: 6px; 
+    }
+
+    #custom-revenue .revenue-column input { 
+        width: 100%; 
+        font-size: 17px; 
+        padding: 8px; 
+    }
+
+    #custom-revenue .average input { 
+        font-size: 19px; 
+    }
+
+    .revenue-column span { 
+        font-size: 16px; 
+    }
+
+    .revenue-column strong {
+        font-size: 22px; 
+    }
+
+    .revenue-column.average strong {
+        font-size: 30px;
     }
 
     #calculate-button {

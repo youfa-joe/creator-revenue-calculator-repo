@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="cf9gmALlI7MzQGwFK-93B1HJ2tdIgcLI6vUYLYZxUfk" />
-
+    <meta name="description" content="Estimate your monthly and yearly revenue">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon.png">
     <title>Creator Revenue Calculator</title>
 
     <link rel="stylesheet" href="styles.css">
@@ -13,11 +14,10 @@
 
 <body>
 
-    <header class="TopHeader">
+    <header class="TopHeader" id="TopHeader">
         <h1>Creator Revenue Calculator</h1>
 
         <label for="platform">Platform:</label>
-
         <select id="platform">
             <option value="youtube">YouTube</option>
             <option value="youtube_shorts">YouTube Shorts</option>
@@ -29,8 +29,7 @@
 
         <br>
 
-        <label id="currencyLabel">Currency:</label>
-
+        <label for="currency" id="currencyLabel">Currency:</label>
         <select id="currency">
             <option value="USD">USD ($)</option>
             <option value="EUR">EUR (€)</option>
@@ -41,15 +40,22 @@
             <option value="CAD">CAD ($)</option>
             <option value="AUD">AUD ($)</option>
         </select>
+
+        <div id="rpm-modes-header">
+            <span>RPM mode:</span>
+
+            <input name="rpm-radio" id="rpm-custom" type="radio" value="custom">
+            <label for="rpm-custom">Custom</label>
+
+            <input name="rpm-radio" id="rpm-platforms" type="radio" value="platforms" checked>
+            <label for="rpm-platforms">Platforms</label>
+        </div>
     </header>
 
 
     <main class="main">
 
-        <label for="monthlyviews-input">
-            Monthly Views
-        </label>
-
+        <label for="monthlyviews-input">Monthly Views</label>
         <input
             id="monthlyviews-input"
             type="number"
@@ -59,50 +65,80 @@
             placeholder="Enter your monthly views"
         >
 
+        <label id="RPM-label" for="RPM-input">RPM</label>
+        <input
+            id="RPM-input"
+            type="number"
+            min="0"
+            step="0.01"
+            value="4.00"
+            placeholder="Enter your RPM"
+        >
+
+        <div id="custom-revenue" class="revenue-section">
+
+            <div class="revenue-column">
+                <span>Low</span>
+                <input min="0" value="1" type="number" id="monthly-low-input">
+            </div>
+
+            <div class="revenue-column average">
+                <span>Average</span>
+                <input min="0" value="5" type="number" id="estimate-input">
+            </div>
+
+            <div class="revenue-column">
+                <span>High</span>
+                <input min="0" value="10" type="number" id="monthly-high-input">
+            </div>
+
+        </div>
+
+        <h2 id="inputted-views">0 views</h2>
+
         <div class="arrow">↓</div>
 
         <div class="result">
-    <div class="revenue-section">
 
-        <div class="revenue-column">
-            <span>Low</span>
-            <strong id="monthly-low">$0.00</strong>
-        </div>
+            <p>Estimated Monthly Revenue</p>
 
-        <div class="revenue-column average">
-            <span>Average</span>
-            <strong id="estimate">$0.00</strong>
-        </div>
+            <div class="revenue-section">
+                <div class="revenue-column">
+                    <span>Low</span>
+                    <strong id="monthly-low">$0.00</strong>
+                </div>
 
-        <div class="revenue-column">
-            <span>High</span>
-            <strong id="monthly-high">$0.00</strong>
-        </div>
+                <div class="revenue-column average">
+                    <span>Average</span>
+                    <strong id="estimate">$0.00</strong>
+                </div>
 
-    </div>
+                <div class="revenue-column">
+                    <span>High</span>
+                    <strong id="monthly-high">$0.00</strong>
+                </div>
+            </div>
 
-    <hr>
+            <hr>
 
-    <p>Estimated Yearly Revenue</p>
+            <p>Estimated Yearly Revenue</p>
 
-    <div class="revenue-section">
+            <div class="revenue-section">
+                <div class="revenue-column">
+                    <span>Low</span>
+                    <strong id="yearly-low">$0.00</strong>
+                </div>
 
-        <div class="revenue-column">
-            <span>Low</span>
-            <strong id="yearly-low">$0.00</strong>
-        </div>
+                <div class="revenue-column average">
+                    <span>Average</span>
+                    <strong id="yearly-estimate">$0.00</strong>
+                </div>
 
-        <div class="revenue-column average">
-            <span>Average</span>
-            <strong id="yearly-estimate">$0.00</strong>
-        </div>
-
-        <div class="revenue-column">
-            <span>High</span>
-            <strong id="yearly-high">$0.00</strong>
-        </div>
-
-    </div>
+                <div class="revenue-column">
+                    <span>High</span>
+                    <strong id="yearly-high">$0.00</strong>
+                </div>
+            </div>
 
             <small>
                 Actual earnings vary depending on audience, RPM,
@@ -110,9 +146,7 @@
             </small>
         </div>
 
-        <button id="calculate-button">
-            Calculate
-        </button>
+        <button id="calculate-button">Calculate</button>
         <br>
         <small id="exchange-time">...</small>
 
@@ -123,13 +157,13 @@
         <hr>
         <h2>How does the Creator Revenue Calculator work?</h2>
         <h4>Enter your estimated monthly views and select your platform. The calculator uses an estimated RPM range to calculate potential monthly and yearly revenue.</h4>
-    
+
         <hr>
-    
+
         <h2>Why is my actual revenue different?</h2>
         <h4>Creator earnings can vary based on audience location, monetization eligibility, content type, advertiser demand, eligible views, and other factors.</h4>
-    
     </div>
+
 
     <script src="script.js"></script>
 
