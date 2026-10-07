@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Creator Revenue Calculator</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="TopHeader">
+        <h1>Creator Revenue Calculator</h1>
+
+        <label for="platform">Platform:</label>
+
+        <select id="platform">
+            <option value="youtube">YouTube</option>
+            <option value="youtube_shorts">YouTube Shorts</option>
+            <option value="tiktok">TikTok</option>
+            <option value="twitch_ads">Twitch Ads</option>
+            <option value="facebook_instream">Facebook Instream</option>
+            <option value="x_revenue">X - Twitter</option>
+        </select>
+
+        <br>
+
+        <label id="currencyLabel">Currency:</label>
+
+        <select id="currency">
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="EGP">EGP (ج.م)</option>
+            <option value="SAR">SAR (﷼)</option>
+            <option value="AED">AED (د.إ)</option>
+            <option value="CAD">CAD ($)</option>
+            <option value="AUD">AUD ($)</option>
+        </select>
+    </header>
+
+
+    <main class="main">
+
+        <label for="monthlyviews-input">
+            Monthly Views
+        </label>
+
+        <input
+            id="monthlyviews-input"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+            placeholder="Enter your monthly views"
+        >
+
+        <div class="arrow">↓</div>
+
+        <div class="result">
+    <div class="revenue-section">
+
+        <div class="revenue-column">
+            <span>Low</span>
+            <strong id="monthly-low">$0.00</strong>
+        </div>
+
+        <div class="revenue-column average">
+            <span>Average</span>
+            <strong id="estimate">$0.00</strong>
+        </div>
+
+        <div class="revenue-column">
+            <span>High</span>
+            <strong id="monthly-high">$0.00</strong>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p>Estimated Yearly Revenue</p>
+
+    <div class="revenue-section">
+
+        <div class="revenue-column">
+            <span>Low</span>
+            <strong id="yearly-low">$0.00</strong>
+        </div>
+
+        <div class="revenue-column average">
+            <span>Average</span>
+            <strong id="yearly-estimate">$0.00</strong>
+        </div>
+
+        <div class="revenue-column">
+            <span>High</span>
+            <strong id="yearly-high">$0.00</strong>
+        </div>
+
+    </div>
+
+            <small>
+                Actual earnings vary depending on audience, RPM,
+                monetization, and other factors.
+            </small>
+        </div>
+
+        <button id="calculate-button">
+            Calculate
+        </button>
+        <br>
+        <small id="exchange-time">...</small>
+
+    </main>
+
+    <div id="FAQ">
+        <h1>FAQ</h1>
+        <hr>
+        <h2>How does the Creator Revenue Calculator work?</h2>
+        <h4>Enter your estimated monthly views and select your platform. The calculator uses an estimated RPM range to calculate potential monthly and yearly revenue.</h4>
+    
+        <hr>
+    
+        <h2>Why is my actual revenue different?</h2>
+        <h4>Creator earnings can vary based on audience location, monetization eligibility, content type, advertiser demand, eligible views, and other factors.</h4>
+    
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

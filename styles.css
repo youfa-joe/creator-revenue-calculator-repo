@@ -1,0 +1,247 @@
+body {
+    background-color: #f7f8fa;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular',
+        'Lucida Grande', 'Lucida Sans Unicode',
+        Geneva, Verdana, sans-serif;
+
+    margin: 0;
+    color: #111;
+}
+
+
+
+.TopHeader {
+    background-color: rgb(46, 111, 172);
+    padding: 30px 20px;
+    text-align: center;
+    color: white;
+}
+
+.TopHeader h1 {
+    margin: 0 0 20px;
+    font-size: 36px;
+}
+
+
+
+
+.main {
+    background-color: white;
+
+    width: 90%;
+    max-width: 750px;
+
+    margin: 40px auto;
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+
+
+
+.main label {
+    display: block;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+
+
+
+#monthlyviews-input {
+    font-size: 24px;
+
+    width: 100%;
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #ddd;
+    border-radius: 8px;
+
+    outline: none;
+}
+
+#rpm-input{
+        font-size: 24px;
+
+    width: 100%;
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #ddd;
+    border-radius: 8px;
+
+    outline: none;
+}
+
+
+#rpm-input:focus{
+    border-color: rgb(46, 111, 172);
+}
+
+#monthlyviews-input:focus {
+    border-color: rgb(46, 111, 172);
+}
+
+#platform{
+    font-size: 15px;
+}
+
+
+
+.arrow {
+    font-size: 35px;
+    margin: 20px 0;
+}
+
+
+
+.result p {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+#estimate {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+
+#yearly-estimate {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.result small {
+    display: block;
+
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+#FAQ{
+    background-color: white;
+
+    width: 90%;
+    max-width: 750px;
+
+    margin: 40px auto;
+    padding: 5px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+
+#calculate-button {
+    font-size: 24px;
+
+    width: 70%;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: rgb(46, 111, 172);
+    color: white;
+
+    cursor: pointer;
+
+    transition: transform 0.15s, background-color 0.15s;
+}
+
+#calculate-button:hover {
+    transform: scale(1.03);
+
+    background-color: rgb(38, 94, 146);
+}
+
+#calculate-button:active {
+    transform: scale(0.98);
+}
+
+.revenue-section {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    align-items: center;
+
+    margin: 30px 0;
+}
+
+.revenue-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.revenue-column span {
+    font-size: 20px;
+}
+
+.revenue-column strong {
+    font-size: 32px;
+}
+
+.revenue-column.average strong {
+    font-size: 42px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 35px 0;
+}
+
+
+@media (max-width: 600px) {
+
+    .TopHeader h1 {
+        font-size: 28px;
+    }
+
+    .main {
+        width: 94%;
+        padding: 20px;
+        margin-top: 25px;
+    }
+
+    .main label {
+        font-size: 22px;
+    }
+
+    #monthlyviews-input {
+        font-size: 20px;
+    }
+
+    #estimate {
+        font-size: 40px;
+    }
+
+    #calculate-button {
+        width: 100%;
+        font-size: 22px;
+    }
+}
